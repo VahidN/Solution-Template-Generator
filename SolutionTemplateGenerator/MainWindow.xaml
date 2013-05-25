@@ -1,0 +1,30 @@
+﻿<Window x:Class="SolutionTemplateGenerator.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Solution Template Generator V1.0" WindowStartupLocation="CenterScreen"             
+        xmlns:VM="clr-namespace:SolutionTemplateGenerator.ViewModels"     
+        xmlns:Views="clr-namespace:SolutionTemplateGenerator.Views"
+        xmlns:extToolkit="clr-namespace:Microsoft.Windows.Controls"
+        Background="#FF393939"
+        Height="509" Width="632" ResizeMode="CanMinimize">
+    <Window.Resources>
+        <VM:MainWindowViewModel x:Key="vmMain" />
+    </Window.Resources>
+    <extToolkit:BusyIndicator DataContext="{StaticResource vmMain}" IsBusy="{Binding OptionsGuiData.IsBusy}">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <ToolBar Height="26" Grid.Row="0" Name="toolBar1" VerticalAlignment="Top" Grid.ColumnSpan="2" >
+                <Button ToolTip="Start" Command="{Binding DoCreateTemplate}">
+                    <Image Source="/Resources/debug-run-icon.png"  />
+                </Button>
+                <Separator/>
+            </ToolBar>
+            <GroupBox Grid.Row="1" Margin="5" Header="Configuration">
+                <Views:Config Grid.Row="1" Margin="5"  />
+            </GroupBox>
+        </Grid>
+    </extToolkit:BusyIndicator>
+</Window>
