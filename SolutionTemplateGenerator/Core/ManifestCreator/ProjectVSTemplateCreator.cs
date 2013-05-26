@@ -7,6 +7,7 @@
     using SolutionTemplateGenerator.Core.Utils;
     using SolutionTemplateGenerator.Core.XmlSchema;
     using SolutionTemplateGenerator.Models;
+    using System.Collections.Generic;
 
     public static class ProjectVSTemplateCreator
     {
@@ -50,6 +51,15 @@
             addAllFiles(rootDir, rootDir, contentProject, data);
             template.TemplateContent.Items.Add(contentProject);
 
+            template.WizardExtension = new List<VSTemplateWizardExtension>
+            {
+                new VSTemplateWizardExtension
+                {
+                     Assembly = new List<object> { typeof(SafeRootProjectWizard.ChildWizard).Assembly.FullName },
+                     FullClassName = new List<object> { typeof(SafeRootProjectWizard.ChildWizard).FullName }
+                }
+            };
+
             return Serializer.Serialize(template);
         }
         // Private Methods (2) 
@@ -84,7 +94,7 @@
 
         private static string replaceNamespace(this string text, OptionsGui data)
         {
-            return text.Replace(data.DefaultNamespace, "$safeprojectname$");
+            return text.Replace(data.DefaultNamespace, "$saferootprojectname$");
         }
 
         #endregion Methods

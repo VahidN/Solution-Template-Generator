@@ -26,7 +26,7 @@
 
             if (!string.IsNullOrEmpty(defaultNamespace))
             {
-                const string replaceText = "$safeprojectname$";
+                const string replaceText = "$saferootprojectname$";
                 originalText = replaceWord(originalText, defaultNamespace, replaceText);
             }
 

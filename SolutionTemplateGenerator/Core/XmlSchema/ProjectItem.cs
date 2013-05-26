@@ -22,7 +22,7 @@ namespace SolutionTemplateGenerator.Core.XmlSchema
 			set;
 		}
 
-		[XmlIgnore]
+        [XmlAttribute]
 		public bool ReplaceParametersSpecified
 		{
 			get;

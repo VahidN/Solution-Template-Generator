@@ -3,6 +3,8 @@
     using SolutionTemplateGenerator.Core.Utils;
     using SolutionTemplateGenerator.Core.XmlSchema;
     using SolutionTemplateGenerator.Models;
+    using System.Collections.Generic;
+    using System.Reflection;
 
     public static class SolutionVSTemplateCreator
     {
@@ -28,20 +30,29 @@
 
             var projectCollection = new VSTemplateTemplateContentProjectCollection();
 
-            var projects = SolutionFileParser.GetSolutionProjects(data.SolutionPath);            
+            var projects = SolutionFileParser.GetSolutionProjects(data.SolutionPath);
             foreach (var project in projects)
             {
-                var name = project.ProjectName.Replace(data.DefaultNamespace, "$safeprojectname$");
+                var name = project.ProjectName.Replace(data.DefaultNamespace, "$saferootprojectname$");
                 var link = new ProjectTemplateLink
                 {
                     ProjectName = name,
                     Value = string.Format("{0}\\MyTemplate.vstemplate", name),
                     ReplaceParameters = true
                 };
-               projectCollection.Items.Add(link);
+                projectCollection.Items.Add(link);
             }
 
             template.TemplateContent.Items.Add(projectCollection);
+
+            template.WizardExtension = new List<VSTemplateWizardExtension>
+            {
+                new VSTemplateWizardExtension
+                {
+                     Assembly = new List<object> { typeof(SafeRootProjectWizard.RootWizard).Assembly.FullName },
+                     FullClassName = new List<object> { typeof(SafeRootProjectWizard.RootWizard).FullName }
+                }
+            };
 
             return Serializer.Serialize(template);
         }

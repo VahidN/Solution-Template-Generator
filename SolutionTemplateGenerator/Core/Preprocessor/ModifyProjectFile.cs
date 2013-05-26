@@ -10,8 +10,10 @@
     {
         public static byte[] Start(string path, string defaultNamespace)
         {
+            var projectFile = modifyPackagesPath(path);
+
             var ext = path.GetExtension();
-            var document = XDocument.Load(path);
+            var document = XDocument.Load(new StringReader(projectFile));
 
             document.replaceElementContent("RootNamespace", "$safeprojectname$");
             document.replaceElementContent("AssemblyName", "$safeprojectname$");
@@ -37,17 +39,25 @@
             }
         }
 
+        private static string modifyPackagesPath(string path)
+        {
+            var xmlFile = File.ReadAllText(path);
+            return xmlFile.Replace(@">..\packages", @">..\..\packages"); // `packages` folder will be created beside the .sln file at the root
+        }
+
         private static void modifyIncludes(this XDocument document, string defaultNamespace)
         {
             foreach (var xElement in document.Descendants().Where(x => x.Attribute("Include") != null))
             {
-                xElement.Attribute("Include").Value = 
-                    xElement.Attribute("Include").Value.Replace(defaultNamespace, "$safeprojectname$");
+                xElement.Attribute("Include").Value =
+                    xElement.Attribute("Include").Value.Replace(defaultNamespace, "$saferootprojectname$"); 
+                // $safeprojectname$ here is not the first project name.
+                // $safeprojectname$ represents the current project name.
 
                 var nameElement = xElement.Descendants().FirstOrDefault(d => d.Name.LocalName == "Name");
                 if (nameElement != null && !string.IsNullOrEmpty(nameElement.Value))
                 {
-                    nameElement.Value = nameElement.Value.Replace(defaultNamespace, "$safeprojectname$");
+                    nameElement.Value = nameElement.Value.Replace(defaultNamespace, "$saferootprojectname$");
                 }
             }
         }

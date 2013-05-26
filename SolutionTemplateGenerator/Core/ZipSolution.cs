@@ -63,7 +63,7 @@ namespace SolutionTemplateGenerator.Core
             var entryName = filePath.Substring(_folderOffset);
             if (replaceSafeprojectname)
             {
-                entryName = entryName.Replace(OptionsGuiData.DefaultNamespace, "$safeprojectname$");
+                entryName = entryName.Replace(OptionsGuiData.DefaultNamespace, "$saferootprojectname$");
             }
             entryName = ZipEntry.CleanName(entryName);
 
@@ -252,11 +252,20 @@ namespace SolutionTemplateGenerator.Core
                 addLicenseFile(_solutionFolder);
                 addContentTypes();
                 addSolutionTemplate();
+                addWizardAssembly();
             }
             finally
             {
                 close();
             }
+        }
+
+        private void addWizardAssembly()
+        {
+            var path = typeof(SafeRootProjectWizard.ChildWizard).Assembly.Location;
+            var name = path.GetFileName();
+            var content = File.ReadAllBytes(path);
+            addFileEntry(Path.Combine(_solutionFolder, name), content);   
         }
 
         private bool ignorePath(string filePath)

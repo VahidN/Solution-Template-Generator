@@ -78,10 +78,15 @@
             vsix.Identifier.License = Uri.EscapeUriString(!string.IsNullOrEmpty(data.LicenseFilePath) ?
                 data.LicenseFilePath.GetFileName() : "MIT.txt");
 
-            var list = new List<ItemsChoiceType> { ItemsChoiceType.ProjectTemplate };
+            var list = new List<ItemsChoiceType> { ItemsChoiceType.ProjectTemplate, ItemsChoiceType.Assembly };
             vsix.Content.ItemsElementName = list.ToArray();
 
             var list2 = new List<object> { TemplatePath };
+            list2.Add(new VsixAssembly
+            {
+                AssemblyName = typeof(SafeRootProjectWizard.ChildWizard).Assembly.FullName,
+                Value = typeof(SafeRootProjectWizard.ChildWizard).Assembly.Location.GetFileName()
+            });
             vsix.Content.Items = list2.ToArray();
 
             return Serializer.Serialize(vsix);
