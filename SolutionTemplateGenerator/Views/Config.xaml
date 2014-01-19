@@ -135,6 +135,12 @@
         <CheckBox Content="VS 2012" Grid.Column="1" Grid.Row="13" Height="Auto" HorizontalAlignment="Left" 
                   Margin="70,6,0,7" Name="checkBox2" VerticalAlignment="Center"
                   IsChecked="{Binding Path=OptionsGuiData.ShouldSupportVS2012, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+
+
+        <CheckBox Content="VS 2013" Grid.Column="1" Grid.Row="13" Height="Auto" HorizontalAlignment="Left" 
+                  Margin="137,6,0,7" Name="checkBox3" VerticalAlignment="Center"
+                  IsChecked="{Binding Path=OptionsGuiData.ShouldSupportVS2013, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+
         <TextBlock Grid.Row="14" Height="Auto" HorizontalAlignment="Right" Margin="3" Name="textBlock5"
                    Text="Output folder" VerticalAlignment="Center" Padding="5" Foreground="White"></TextBlock>
         <TextBox Grid.Column="1" Grid.Row="14" Height="Auto" HorizontalAlignment="Stretch" Margin="3"

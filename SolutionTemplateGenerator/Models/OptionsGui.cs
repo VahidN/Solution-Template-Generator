@@ -7,7 +7,7 @@ namespace SolutionTemplateGenerator.Models
 {
     public class OptionsGui : ViewModelBase
     {
-        #region Fields (16)
+        #region Fields
 
         string _companyName;
         string _defaultNamespace;
@@ -23,6 +23,7 @@ namespace SolutionTemplateGenerator.Models
         string _projectType;
         bool _shouldSupportVS2010;
         bool _shouldSupportVS2012;
+        bool _shouldSupportVS2013;
         string _solutionPath;
         string _version;
 
@@ -38,7 +39,9 @@ namespace SolutionTemplateGenerator.Models
             CompanyName = Environment.UserName;
             ShouldSupportVS2010 = true;
             ShouldSupportVS2012 = true;
+            ShouldSupportVS2013 = true;
             OutputFolder = Path.Combine(Application.StartupPath, "Output");
+            ProductDescription = "A project for creating an application using ...";
         }
 
         #endregion Constructors
@@ -182,6 +185,16 @@ namespace SolutionTemplateGenerator.Models
             {
                 _shouldSupportVS2012 = value;
                 RaisePropertyChanged(() => ShouldSupportVS2012);
+            }
+        }
+
+        public bool ShouldSupportVS2013
+        {
+            get { return _shouldSupportVS2013; }
+            set
+            {
+                _shouldSupportVS2013 = value;
+                RaisePropertyChanged(() => ShouldSupportVS2013);
             }
         }
 

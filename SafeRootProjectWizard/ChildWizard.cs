@@ -8,10 +8,21 @@ namespace SafeRootProjectWizard
     {
         public void RunStarted(object automationObject,
                                Dictionary<string, string> replacementsDictionary,
-                               WizardRunKind runKind, 
+                               WizardRunKind runKind,
                                object[] customParams)
         {
-            replacementsDictionary.Add("$saferootprojectname$", RootWizard.GlobalDictionary["$saferootprojectname$"]);
+            string value;
+            if (RootWizard.GlobalDictionary.TryGetValue("$saferootprojectname$", out value))
+            {
+                replacementsDictionary.Add("$saferootprojectname$", value);
+            }
+            else
+            {
+                if (replacementsDictionary.TryGetValue("$safeprojectname$", out value))
+                {
+                    replacementsDictionary.Add("$saferootprojectname$", value);
+                }
+            }
         }
 
         public void RunFinished()

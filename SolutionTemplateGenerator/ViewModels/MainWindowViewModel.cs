@@ -81,8 +81,8 @@ namespace SolutionTemplateGenerator.ViewModels
             var firstProject = projects.First();
             OptionsGuiData.ProductName = firstProject.ProjectName;
             OptionsGuiData.DefaultNamespace = firstProject.ProjectName;
-            OptionsGuiData.ProductDescription = OptionsGuiData.ProductName;
             OptionsGuiData.ProjectType = firstProject.ProjectTypeName;
+            OptionsGuiData.Version = firstProject.Version;
         }
 
         #endregion Methods

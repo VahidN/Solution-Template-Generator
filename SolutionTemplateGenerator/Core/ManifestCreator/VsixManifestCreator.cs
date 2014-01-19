@@ -67,6 +67,15 @@
                 });
             }
 
+            if (data.ShouldSupportVS2013)
+            {
+                vsix.Identifier.SupportedProducts.Add(new VsixIdentifierVisualStudio
+                {
+                    Version = "12.0",
+                    Edition = new List<string> { "Ultimate", "Premium", "Pro", "Express_All" }
+                });
+            }
+
             if (!string.IsNullOrEmpty(data.GettingStartedGuideUrl))
             {
                 vsix.Identifier.GettingStartedGuide = Uri.EscapeUriString(data.GettingStartedGuideUrl);

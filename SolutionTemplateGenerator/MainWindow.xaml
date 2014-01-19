@@ -1,7 +1,7 @@
 ﻿<Window x:Class="SolutionTemplateGenerator.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Solution Template Generator V1.1" WindowStartupLocation="CenterScreen"             
+        Title="Solution Template Generator V1.2" WindowStartupLocation="CenterScreen"             
         xmlns:VM="clr-namespace:SolutionTemplateGenerator.ViewModels"     
         xmlns:Views="clr-namespace:SolutionTemplateGenerator.Views"
         xmlns:extToolkit="clr-namespace:Microsoft.Windows.Controls"
