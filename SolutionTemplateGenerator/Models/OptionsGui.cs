@@ -24,6 +24,7 @@ namespace SolutionTemplateGenerator.Models
         bool _shouldSupportVS2010;
         bool _shouldSupportVS2012;
         bool _shouldSupportVS2013;
+        bool _shouldSupportVS2015;
         string _solutionPath;
         string _version;
 
@@ -40,6 +41,7 @@ namespace SolutionTemplateGenerator.Models
             ShouldSupportVS2010 = true;
             ShouldSupportVS2012 = true;
             ShouldSupportVS2013 = true;
+            ShouldSupportVS2015 = true;
             OutputFolder = Path.Combine(Application.StartupPath, "Output");
             ProductDescription = "A project for creating an application using ...";
         }
@@ -195,6 +197,16 @@ namespace SolutionTemplateGenerator.Models
             {
                 _shouldSupportVS2013 = value;
                 RaisePropertyChanged(() => ShouldSupportVS2013);
+            }
+        }
+
+        public bool ShouldSupportVS2015
+        {
+            get { return _shouldSupportVS2015; }
+            set
+            {
+                _shouldSupportVS2015 = value;
+                RaisePropertyChanged(() => ShouldSupportVS2015);
             }
         }
 

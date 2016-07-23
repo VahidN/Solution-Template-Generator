@@ -1,11 +1,11 @@
 ﻿<UserControl x:Class="SolutionTemplateGenerator.Views.Config"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"         
-             xmlns:MVVM="clr-namespace:SolutionTemplateGenerator.MVVM"   
-             mc:Ignorable="d" 
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:MVVM="clr-namespace:SolutionTemplateGenerator.MVVM"
+             mc:Ignorable="d"
              Background="#FF393939"
              d:DesignHeight="475" d:DesignWidth="607">
     <Grid>
@@ -32,125 +32,129 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="85*" />
         </Grid.RowDefinitions>
-        <Label Content="Solution Path" Height="Auto" 
-               HorizontalAlignment="Right" Margin="3" Name="label1" 
+        <Label Content="Solution Path" Height="Auto"
+               HorizontalAlignment="Right" Margin="3" Name="label1"
                VerticalAlignment="Center" />
-        <TextBox Grid.Column="1" Height="Auto" 
-                 HorizontalAlignment="Stretch" Margin="3" Name="textBox1" 
+        <TextBox Grid.Column="1" Height="Auto"
+                 HorizontalAlignment="Stretch" Margin="3" Name="textBox1"
                  VerticalAlignment="Center" Width="Auto" IsReadOnly="True" Text="{Binding Path=OptionsGuiData.SolutionPath, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-        <Button Content="Browse" Grid.Column="2" Height="Auto" 
-                HorizontalAlignment="Left" Margin="3" Name="button1" 
+        <Button Content="Browse" Grid.Column="2" Height="Auto"
+                HorizontalAlignment="Left" Margin="3" Name="button1"
                 VerticalAlignment="Stretch" Width="75" >
             <i:Interaction.Triggers>
                 <i:EventTrigger EventName="Click">
-                    <MVVM:OpenFileDialogBoxBehavior 
+                    <MVVM:OpenFileDialogBoxBehavior
 						DialogFilter="All Solution Files|*.sln|All Files|*.*"
 						FileDialogDialogResultCommand="{Binding OptionsGuiData.SolutionPath, Mode=TwoWay}"/>
                 </i:EventTrigger>
             </i:Interaction.Triggers>
         </Button>
-        <Label Content="Product Name" Grid.Row="2" Height="Auto" 
-               HorizontalAlignment="Right" Margin="3" Name="label2" 
+        <Label Content="Product Name" Grid.Row="2" Height="Auto"
+               HorizontalAlignment="Right" Margin="3" Name="label2"
                VerticalAlignment="Center" />
-        <TextBox Grid.Column="1" Grid.Row="2" Height="Auto" HorizontalAlignment="Stretch" 
+        <TextBox Grid.Column="1" Grid.Row="2" Height="Auto" HorizontalAlignment="Stretch"
                  Margin="3" Name="textBox2" VerticalAlignment="Center" Width="Auto" Text="{Binding Path=OptionsGuiData.ProductName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-        <Label Content="Product Description" Grid.Row="3" Height="Auto" 
+        <Label Content="Product Description" Grid.Row="3" Height="Auto"
                HorizontalAlignment="Right" Margin="3" Name="label3" VerticalAlignment="Center" />
-        <TextBox Grid.Column="1" Grid.Row="3" Height="Auto" HorizontalAlignment="Stretch" 
+        <TextBox Grid.Column="1" Grid.Row="3" Height="Auto" HorizontalAlignment="Stretch"
                  Margin="3" Name="textBox3" VerticalAlignment="Center" Width="Auto" Text="{Binding Path=OptionsGuiData.ProductDescription, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-        <TextBox Grid.Row="4" Height="Auto" HorizontalAlignment="Stretch" Margin="3" 
-                 Name="textBox4" VerticalAlignment="Center" Width="Auto" Grid.Column="1" IsReadOnly="True" 
+        <TextBox Grid.Row="4" Height="Auto" HorizontalAlignment="Stretch" Margin="3"
+                 Name="textBox4" VerticalAlignment="Center" Width="Auto" Grid.Column="1" IsReadOnly="True"
                  Text="{Binding Path=OptionsGuiData.IconImagePath, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-        <Label Content="Icon Image Path" Grid.Row="4" Height="Auto" 
+        <Label Content="Icon Image Path" Grid.Row="4" Height="Auto"
                HorizontalAlignment="Right" Margin="3" Name="label4" VerticalAlignment="Center" />
-        <Button Content="Browse" Grid.Column="2" Grid.Row="4" Height="Auto" 
+        <Button Content="Browse" Grid.Column="2" Grid.Row="4" Height="Auto"
                 HorizontalAlignment="Left" Margin="3" Name="button2" VerticalAlignment="Stretch" Width="75" >
             <i:Interaction.Triggers>
                 <i:EventTrigger EventName="Click">
-                    <MVVM:OpenFileDialogBoxBehavior 
+                    <MVVM:OpenFileDialogBoxBehavior
 						DialogFilter="All Picture Files|*.ico;*.jpeg;*.jpe;*.jpg;*.jfif;*.png|Icons (.ico)|*.ico|PNG|*.png|JPEG|*.jpeg;*.jpe;*.jpg;*.jfif|All Files|*.*"
 						FileDialogDialogResultCommand="{Binding OptionsGuiData.IconImagePath, Mode=TwoWay}"/>
                 </i:EventTrigger>
             </i:Interaction.Triggers>
         </Button>
-        <Label Content="Preview Image Path" Grid.Row="5" Height="Auto" 
+        <Label Content="Preview Image Path" Grid.Row="5" Height="Auto"
                HorizontalAlignment="Right" Margin="3" Name="label5" VerticalAlignment="Center" />
-        <TextBox Grid.Column="1" Grid.Row="5" Height="Auto" HorizontalAlignment="Stretch" 
-                 Margin="3" Name="textBox5" VerticalAlignment="Center" Width="Auto" IsReadOnly="True" 
+        <TextBox Grid.Column="1" Grid.Row="5" Height="Auto" HorizontalAlignment="Stretch"
+                 Margin="3" Name="textBox5" VerticalAlignment="Center" Width="Auto" IsReadOnly="True"
                  Text="{Binding Path=OptionsGuiData.PreviewImagePath, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-        <Button Content="Browse" Grid.Column="2" Grid.Row="5" Height="Auto" 
+        <Button Content="Browse" Grid.Column="2" Grid.Row="5" Height="Auto"
                 HorizontalAlignment="Left" Margin="3" Name="button3" VerticalAlignment="Stretch" Width="75" >
             <i:Interaction.Triggers>
                 <i:EventTrigger EventName="Click">
-                    <MVVM:OpenFileDialogBoxBehavior 
+                    <MVVM:OpenFileDialogBoxBehavior
 						DialogFilter="All Picture Files|*.ico;*.jpeg;*.jpe;*.jpg;*.jfif;*.png|Icons (.ico)|*.ico|PNG|*.png|JPEG|*.jpeg;*.jpe;*.jpg;*.jfif|All Files|*.*"
 						FileDialogDialogResultCommand="{Binding OptionsGuiData.PreviewImagePath, Mode=TwoWay}"/>
                 </i:EventTrigger>
             </i:Interaction.Triggers>
         </Button>
-        <Label Content="Author" Grid.Row="6" Height="Auto" HorizontalAlignment="Right" 
+        <Label Content="Author" Grid.Row="6" Height="Auto" HorizontalAlignment="Right"
                Margin="3" Name="label6" VerticalAlignment="Center" />
-        <TextBox Grid.Column="1" Grid.Row="6" Height="Auto" HorizontalAlignment="Stretch" 
-                 Margin="3" Name="textBox6" VerticalAlignment="Center" Width="Auto" 
+        <TextBox Grid.Column="1" Grid.Row="6" Height="Auto" HorizontalAlignment="Stretch"
+                 Margin="3" Name="textBox6" VerticalAlignment="Center" Width="Auto"
                  Text="{Binding Path=OptionsGuiData.CompanyName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-        <Label Content="Version" Grid.Row="7" Height="Auto" HorizontalAlignment="Right" 
+        <Label Content="Version" Grid.Row="7" Height="Auto" HorizontalAlignment="Right"
                Margin="3" Name="label7" VerticalAlignment="Center" />
-        <TextBox Grid.Column="1" Grid.Row="7" Height="Auto" HorizontalAlignment="Left" 
-                 Margin="3" Name="textBox7" VerticalAlignment="Center" Width="70" 
+        <TextBox Grid.Column="1" Grid.Row="7" Height="Auto" HorizontalAlignment="Left"
+                 Margin="3" Name="textBox7" VerticalAlignment="Center" Width="70"
                  Text="{Binding Path=OptionsGuiData.Version, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-        <TextBlock Grid.Row="8" Height="Auto" HorizontalAlignment="Right" Margin="3" 
+        <TextBlock Grid.Row="8" Height="Auto" HorizontalAlignment="Right" Margin="3"
                    Name="textBlock1" Text="License File Path" VerticalAlignment="Center" Padding="5" Foreground="White"></TextBlock>
-        <TextBox Grid.Column="1" Grid.Row="8" Height="Auto" HorizontalAlignment="Stretch" 
-                 Margin="3" Name="textBox8" VerticalAlignment="Center" Width="Auto" IsReadOnly="True" 
+        <TextBox Grid.Column="1" Grid.Row="8" Height="Auto" HorizontalAlignment="Stretch"
+                 Margin="3" Name="textBox8" VerticalAlignment="Center" Width="Auto" IsReadOnly="True"
                  Text="{Binding Path=OptionsGuiData.LicenseFilePath, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-        <Button Content="Browse" Grid.Column="2" Grid.Row="8" Height="Auto" HorizontalAlignment="Left" 
+        <Button Content="Browse" Grid.Column="2" Grid.Row="8" Height="Auto" HorizontalAlignment="Left"
                 Margin="3" Name="button4" VerticalAlignment="Stretch" Width="75" >
             <i:Interaction.Triggers>
                 <i:EventTrigger EventName="Click">
-                    <MVVM:OpenFileDialogBoxBehavior 
+                    <MVVM:OpenFileDialogBoxBehavior
 						DialogFilter="Text Files|*.txt;*.rtf|License Files|*.lic|All Files|*.*"
 						FileDialogDialogResultCommand="{Binding OptionsGuiData.LicenseFilePath, Mode=TwoWay}"/>
                 </i:EventTrigger>
             </i:Interaction.Triggers>
         </Button>
-        <Label Content="Getting Started Guide Url" Grid.Row="9" Height="Auto" HorizontalAlignment="Right" 
+        <Label Content="Getting Started Guide Url" Grid.Row="9" Height="Auto" HorizontalAlignment="Right"
                Margin="3" Name="label8" VerticalAlignment="Center" />
-        <TextBox Grid.Column="1" Grid.Row="9" Height="Auto" HorizontalAlignment="Stretch" Margin="3" 
-                 Name="textBox9" VerticalAlignment="Center" Width="Auto" 
+        <TextBox Grid.Column="1" Grid.Row="9" Height="Auto" HorizontalAlignment="Stretch" Margin="3"
+                 Name="textBox9" VerticalAlignment="Center" Width="Auto"
                  Text="{Binding Path=OptionsGuiData.GettingStartedGuideUrl, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-        <Label Content="Project Type" Grid.Row="11" Height="Auto" HorizontalAlignment="Right" Margin="3" 
+        <Label Content="Project Type" Grid.Row="11" Height="Auto" HorizontalAlignment="Right" Margin="3"
                Name="label9" VerticalAlignment="Center" />
         <TextBox Grid.Column="1" Grid.Row="11" Height="Auto" HorizontalAlignment="Stretch" Margin="3"
-                 Name="textBox10" VerticalAlignment="Center" Width="Auto" 
+                 Name="textBox10" VerticalAlignment="Center" Width="Auto"
                  Text="{Binding Path=OptionsGuiData.ProjectType, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-        <TextBlock Grid.Row="12" Height="Auto" HorizontalAlignment="Right" Margin="3" Name="textBlock3" 
+        <TextBlock Grid.Row="12" Height="Auto" HorizontalAlignment="Right" Margin="3" Name="textBlock3"
                    Text="Project SubType" VerticalAlignment="Center" Padding="5" Foreground="White"></TextBlock>
-        <TextBox Grid.Column="1" Grid.Row="12" Height="Auto" HorizontalAlignment="Stretch" Margin="3" 
-                 Name="textBox11" VerticalAlignment="Center" Width="Auto" Padding="1" 
+        <TextBox Grid.Column="1" Grid.Row="12" Height="Auto" HorizontalAlignment="Stretch" Margin="3"
+                 Name="textBox11" VerticalAlignment="Center" Width="Auto" Padding="1"
                  Text="{Binding Path=OptionsGuiData.ProjectSubType, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
         <TextBlock Grid.Row="13" Height="Auto" HorizontalAlignment="Right" Margin="3" Name="textBlock4" Text="Supported Products" VerticalAlignment="Center" Padding="5" Foreground="White"></TextBlock>
-        <CheckBox Content="VS 2010" Grid.Column="1" Grid.Row="13" Height="Auto" 
+        <CheckBox Content="VS 2010" Grid.Column="1" Grid.Row="13" Height="Auto"
                   HorizontalAlignment="Left" Margin="3" Name="checkBox1" VerticalAlignment="Center"
                   IsChecked="{Binding Path=OptionsGuiData.ShouldSupportVS2010, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-        <CheckBox Content="VS 2012" Grid.Column="1" Grid.Row="13" Height="Auto" HorizontalAlignment="Left" 
+        <CheckBox Content="VS 2012" Grid.Column="1" Grid.Row="13" Height="Auto" HorizontalAlignment="Left"
                   Margin="70,6,0,7" Name="checkBox2" VerticalAlignment="Center"
                   IsChecked="{Binding Path=OptionsGuiData.ShouldSupportVS2012, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
 
-        <CheckBox Content="VS 2013" Grid.Column="1" Grid.Row="13" Height="Auto" HorizontalAlignment="Left" 
+        <CheckBox Content="VS 2013" Grid.Column="1" Grid.Row="13" Height="Auto" HorizontalAlignment="Left"
                   Margin="137,6,0,7" Name="checkBox3" VerticalAlignment="Center"
                   IsChecked="{Binding Path=OptionsGuiData.ShouldSupportVS2013, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+
+        <CheckBox Content="VS 2015" Grid.Column="1" Grid.Row="13" Height="Auto" HorizontalAlignment="Left"
+                  Margin="204,6,0,7" Name="checkBox4" VerticalAlignment="Center"
+                  IsChecked="{Binding Path=OptionsGuiData.ShouldSupportVS2015, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
         <TextBlock Grid.Row="14" Height="Auto" HorizontalAlignment="Right" Margin="3" Name="textBlock5"
                    Text="Output folder" VerticalAlignment="Center" Padding="5" Foreground="White"></TextBlock>
         <TextBox Grid.Column="1" Grid.Row="14" Height="Auto" HorizontalAlignment="Stretch" Margin="3"
                  Name="textBox12" VerticalAlignment="Center" Width="Auto"
                  Text="{Binding Path=OptionsGuiData.OutputFolder, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True" />
-        <Button Content="Browse" Grid.Column="2" Grid.Row="14" Height="Auto" HorizontalAlignment="Left" 
+        <Button Content="Browse" Grid.Column="2" Grid.Row="14" Height="Auto" HorizontalAlignment="Left"
                 Margin="3" Name="button6" VerticalAlignment="Stretch" Width="75" >
             <i:Interaction.Triggers>
                 <i:EventTrigger EventName="Click">
-                    <MVVM:FolderBrowserDialogBehavior 
+                    <MVVM:FolderBrowserDialogBehavior
                         FolderBrowserDescription="Please select a folder..."
 					    FolderBrowserDialogResultCommand="{Binding OptionsGuiData.OutputFolder, Mode=TwoWay}"	/>
                 </i:EventTrigger>
@@ -158,8 +162,8 @@
         </Button>
         <Label Content="$safeprojectname$" Grid.Row="1" Height="Auto" HorizontalAlignment="Right"
                Margin="3" Name="label10" VerticalAlignment="Center" />
-        <TextBox Grid.Column="1" Grid.Row="1" Height="Auto" HorizontalAlignment="Stretch" 
-                 Margin="3" Name="textBox13" VerticalAlignment="Center" Width="Auto" 
+        <TextBox Grid.Column="1" Grid.Row="1" Height="Auto" HorizontalAlignment="Stretch"
+                 Margin="3" Name="textBox13" VerticalAlignment="Center" Width="Auto"
                  Text="{Binding Path=OptionsGuiData.DefaultNamespace, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
     </Grid>
 </UserControl>

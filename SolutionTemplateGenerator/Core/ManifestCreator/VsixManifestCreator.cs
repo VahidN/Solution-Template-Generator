@@ -16,7 +16,7 @@
 
         #region Methods (1)
 
-        // Public Methods (1) 
+        // Public Methods (1)
 
         /// <summary>
         /// Creates extension.vsixmanifest file's content.
@@ -75,6 +75,16 @@
                     Edition = new List<string> { "Ultimate", "Premium", "Pro", "Express_All" }
                 });
             }
+
+            if (data.ShouldSupportVS2015)
+            {
+                vsix.Identifier.SupportedProducts.Add(new VsixIdentifierVisualStudio
+                {
+                    Version = "14.0",
+                    Edition = new List<string> { "Ultimate", "Premium", "Pro", "Express_All" }
+                });
+            }
+
 
             if (!string.IsNullOrEmpty(data.GettingStartedGuideUrl))
             {

@@ -4,7 +4,7 @@
     using System.IO;
     using System.Linq;
     using System.Xml.Linq;
-    using SolutionTemplateGenerator.Core.Utils;
+    using Utils;
 
     public static class ModifyProjectFile
     {
@@ -42,7 +42,10 @@
         private static string modifyPackagesPath(string path)
         {
             var xmlFile = File.ReadAllText(path);
-            return xmlFile.Replace(@">..\packages", @">..\..\packages"); // `packages` folder will be created beside the .sln file at the root
+            return xmlFile
+                    .Replace(@"""..\packages", @"""..\..\packages")
+                    .Replace(@"'..\packages", @"'..\..\packages")
+                    .Replace(@">..\packages", @">..\..\packages"); // `packages` folder will be created beside the .sln file at the root
         }
 
         private static void modifyIncludes(this XDocument document, string defaultNamespace)
