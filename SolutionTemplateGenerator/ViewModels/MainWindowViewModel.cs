@@ -33,7 +33,7 @@ namespace SolutionTemplateGenerator.ViewModels
 
         #region Methods (4)
 
-        // Private Methods (4) 
+        // Private Methods (4)
 
         bool canDoCreateTemplate(string data)
         {
