@@ -81,10 +81,18 @@
                 vsix.Identifier.SupportedProducts.Add(new VsixIdentifierVisualStudio
                 {
                     Version = "14.0",
-                    Edition = new List<string> { "Ultimate", "Premium", "Pro", "Express_All" }
+                    Edition = new List<string> { "Ultimate", "Premium", "Pro", "Express_All", "Community" }
                 });
             }
 
+            if (data.ShouldSupportVS2017)
+            {
+                vsix.Identifier.SupportedProducts.Add(new VsixIdentifierVisualStudio
+                {
+                    Version = "15.0",
+                    Edition = new List<string> { "Ultimate", "Premium", "Pro", "Express_All", "Enterprise", "Community" }
+                });
+            }
 
             if (!string.IsNullOrEmpty(data.GettingStartedGuideUrl))
             {

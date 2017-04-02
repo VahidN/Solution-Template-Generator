@@ -145,6 +145,10 @@
                   Margin="204,6,0,7" Name="checkBox4" VerticalAlignment="Center"
                   IsChecked="{Binding Path=OptionsGuiData.ShouldSupportVS2015, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
+        <CheckBox Content="VS 2017" Grid.Column="1" Grid.Row="13" Height="Auto" HorizontalAlignment="Left"
+                  Margin="271,6,0,7" Name="checkBox5" VerticalAlignment="Center"
+                  IsChecked="{Binding Path=OptionsGuiData.ShouldSupportVS2017, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+
         <TextBlock Grid.Row="14" Height="Auto" HorizontalAlignment="Right" Margin="3" Name="textBlock5"
                    Text="Output folder" VerticalAlignment="Center" Padding="5" Foreground="White"></TextBlock>
         <TextBox Grid.Column="1" Grid.Row="14" Height="Auto" HorizontalAlignment="Stretch" Margin="3"

@@ -28,7 +28,9 @@ namespace SolutionTemplateGenerator.Core.Utils
         {
             var name = Path.GetExtension(path);
             if (string.IsNullOrWhiteSpace(name))
-                throw new InvalidOperationException(string.Format("Couldn't extract extension of the `{0}`", path));
+            {
+                name = string.Empty;
+            }
 
             return name;
         }
